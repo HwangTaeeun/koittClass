@@ -51,6 +51,7 @@ public class Test07 {
 							%x	: 16진수 데이터
 							%e	: 실수를 10지수방식으로 출력할때
 							%b	: 논리값(true, false)
+							
 		 */
 		
 		System.out.printf("밑변 : %5d, \n높이 : %5d \n%s %.2f 입니다. ", 
