@@ -45,6 +45,7 @@ public class CreateLotto {
 					결과는 각 인덱스의 들어있는 데이터 즉 배열이 된다.
 					
 						myLotto[n] ==> myLotto배열의 n번째 방에 있는 데이터(배열)
+						
 				 */
 				System.out.println("반복 횟수 : " + k++);
 				// 2. 랜덤한 숫자를 만든다.
