@@ -1,5 +1,7 @@
 package day05;
 
+import java.util.Arrays;
+
 /*
 	5명의 학생의 점수를 관리할 배열을 만드는데
 	배열에는 정수형으로 데이터를 저장할 것이다.
@@ -19,11 +21,93 @@ package day05;
 	======================================================================================
 	석차도 구해서 정렬하고 출력하세요.
 	
+	
+	=======================================================================================
+	
+	각 처리를 함수를 작성하고 호출해서 처리하세요.
+	
  */
 public class Ex01 {
-
+	
 	public Ex01() {
+		// 이름을 관리할 배열을 만든다.
+		String[] name = {"A", "B", "C", "D", "E"};
 		
+		// 점수를 관리할 배열을 만든다.
+		int[][] score = new int[5][7];
+		
+		// 학생번호와 점수를 입력한다.
+		// 학생번호는 1 부터 순차적으로 증가시켜주기로 하자.
+		// 점수는 50 ~ 100까지 랜덤하게 발생시켜서 각 과목 방에다 저장하고 
+		// 총점은 한명당 과목점수가 만들어지면 총점 구하는 함수를 호출해서 총점을 입력한다.
+		for(int i = 0 ; i < 5 ; i++ ) {
+			// 학생의 번호를 입력하고
+			score[i][0] = i+1;
+			int[] tmp = new int[5];
+			// 점수를 랜덤하게 만들어서 입력한다. 그런데 점수는 다섯개가 나와야한다.
+			// 따라서 다섯번 반복해야된다.
+			for(int j = 1 ; j < 6 ; j++ ) {
+				int jumsoo = (int)(Math.random() * 51 + 50);
+				score[i][j] = jumsoo;
+				tmp[j - 1] = jumsoo;
+			}
+			
+			//점수가 나왔으니 총점을 구해서 입력해준다.
+			// 그런데 총점은 아래 함수에서 만들어서 반환해주기로 했다.
+			score[i][6] = getTotal(tmp);
+		}
+		
+		// 출력한다.
+		
+		for(int i = 0 ; i < 5 ; i++ ) {
+			System.out.println(Arrays.toString(score[i]) + " | 평균 : " + getAvg(score[i]));
+		}
+		
+		
+		// 정렬하기 : 내림차순 정렬을 해야 한다.
+		// 정렬기준은 총점으로 하면 된다.
+		for(int i = 0 ; i < 4 ; i++ ) {
+			for(int j = i + 1; j < 5; j++ ) {
+				if(score[i][6] < score[j][6]) {
+					// 둘을 교체해야 될 경우 
+					// 먼저 방의 데이터를 입력하는 순간 원래있던 데이터는 사라지므로
+					// 먼저 벡업을 해놓고 교체하면 된다.
+					int[] tmp = score[i];
+					score[i] = score[j];
+					score[j] = tmp;
+				}
+			}
+		}
+		
+		for(int i = 0 ; i < 5 ; i++ ) {
+			System.out.println(Arrays.toString(score[i]) + " | 평균 : " + getAvg(score[i]) + " | 석차 : " + (i+1));
+		}
+	}
+	
+	// 이 함수는 이력되는 데이터를 누적시켜서 계산해주는 함수이다.
+	// 과목점수가 입력되어있는 배열을 입력하면 모든 과목의 합을 구해서 반환해주는 함수로 작성하자.
+	public int getTotal(int[] sub) {
+		// 총점 구할 변수를 만들고
+		int total = 0;
+		
+		// 총점을 구해주고
+		for(int i = 0 ; i < sub.length ; i++ ) {
+			total += sub[i];
+		}
+		
+		// 총점을 반환해주고
+		return total;
+	}
+	
+	// 한 학생의 데이터를 입력하면 평균을 구해서 반환해주는 함수를 만든다.
+	public double getAvg(int[] s) {
+		
+		// 총점이 있는 방의 인덱스 구하기
+		int idx = s.length - 1;
+		double avg = s[s.length - 1] / 5.0;
+		
+		// 평균 반환하고
+		return avg;
 	}
 
 	public static void main(String[] args) {
