@@ -60,6 +60,11 @@ public class Circle01 {
 			this : 	자바에서의 this는 
 					현재 실행되고 있는 객체 자기자신을 이야기한다.
 		 */
+		
+		// 반지름이 입력이 되므로 반지름으로 계산하는 원둘레도 계산이 가능하다. 따라서 셋팅도 가능하다.
+		this.arround = getArround(radius);
+		// 원의 넓이 입력
+		this.area = getArea(radius);
 	}
 	
 	public double getArround(int radius) {
