@@ -62,6 +62,7 @@ public class Test02 {
 	private int no1;
 	
 	public static final float PI = 3.14f;
+	
 	public static void main(String[] args) {
 		int num = new Test02().no1;
 		
