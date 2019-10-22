@@ -39,3 +39,87 @@ class Dohyung {
 		System.out.println("여기는 도형클래스");
 	}
 }
+
+// 원 클래스를 만든다.
+class Circle extends Dohyung {
+	int rad;
+	
+	public Circle() {
+		// 기본 생성자 함수
+		// 데이터를 입력하지 않는 경우에는 반지름이 [ 1 ]로 셋팅이 되도록 해보자.
+		// 그런데 변수들의 초기화는 아래 데이터가 입력되서 실행되는
+		// 생성자함수를 만들어 놓았으므로 그 함수를 호출해주면
+		// 반지름 셋팅 + 면적계산 까지 해결이 된다.
+		this(1);
+	} 
+	
+	public Circle(int rad) {
+		// 반지름을 입력해서 원의 객체를 만드는 생성자 함수
+		this.rad = rad;
+		// 반지름이 입력이 되면 면적도 계산이 된다.
+		// 그 기능은 아래 setArea()를 오버라이딩(함수의 재정의)로 처리해 놓았으므로
+		// 함수를 호출만 해주면 된다.
+		setArea();
+	}
+	
+	public void setArea() {
+		this.area = this.rad * this.rad * Math.PI;
+	}
+	
+	public void toPrint() {
+		System.out.println("원 : 반지름 - " + rad + " | 면적 - " + area);
+	}
+}
+
+// 삼각형 클래스를 만든다.
+class Semo extends Dohyung {
+	int width;
+	int height;
+	
+	// 기본 생성자함수
+	public Semo() {
+		this(1, 2);
+	}
+	// 데이터입력하는 생성자 함수
+	public Semo(int width, int height) {
+		this.width = width;
+		this.height = height;
+		setArea();
+	}
+	
+	public void setArea() {
+		this.area = width * height / 2d;
+	}
+	
+	public void toPrint() {
+		System.out.println("세모 : 밑변 - " + width + " | 높이 - " + height + " | 면적 - " + area);
+	}
+	
+}
+
+// 사각형 클래스를 만든다.
+class Nemo extends Dohyung {
+	// 변수 선언
+	int width;
+	int height;
+	
+	// 생성자 함수
+	public Nemo() {
+		this(1, 1);
+	}
+	
+	public Nemo(int width, int height) {
+		this.width = width;
+		this.height = height;
+		setArea();
+	}
+	
+	
+	public void setArea() {
+		this.area = this.width * this.height;
+	}
+	
+	public void toPrint() {
+		System.out.println("네모 : 가로 - " + width + " | 세로 - " + height + " | 면적 - " + area);
+	}
+}
