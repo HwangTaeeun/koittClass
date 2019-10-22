@@ -19,7 +19,32 @@ package day09;
 public class Ex01 {
 	
 	public Ex01() {
+		// 할일
+		// 도형을 10개 담을 수 있는 배열을 만들고
+		Dohyung[] d1 = new Dohyung[10];
 		
+		// 반복해서 랜덤하게 도형을 집어 넣어주고
+		for(int i = 0 ; i < d1.length ; i++ ) {
+			// 랜덤하게 숫자를 0 ~ 2 뽑아서
+			int proto = (int)(Math.random() * 3);
+			
+			switch(proto) {
+			case 0:
+				d1[i] = new Circle((int)(Math.random() * 26) + 5);
+				break;
+			case 1:
+				d1[i] = new Semo((int)(Math.random() * 6) + 3, (int)(Math.random() * 6) + 3);
+				break;
+			case 2:
+				d1[i] = new Nemo((int)(Math.random()*11 + 10), (int)(Math.random()*11 + 10));
+				break;
+			}
+		}
+		
+		// 출력한다.
+		for(int i = 0 ; i < d1.length ; i++ ) {
+			d1[i].toPrint();
+		}
 	}
 
 	public static void main(String[] args) {
