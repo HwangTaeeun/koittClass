@@ -4,4 +4,5 @@ public abstract class Dohyung {
 	double area;
 	
 	public abstract void setArea();
+	public abstract void toPrint();
 }
