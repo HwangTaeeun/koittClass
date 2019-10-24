@@ -10,12 +10,32 @@ package day07;
 			윤년 - 	4로 나누어 떨어지면서 
 					100으로 나누어 떨어지지 않고
 					400나누어 떨어지는 해
-	
+	------------------------------------------------------------------------------------
+		추가]
+			삼항연산자로 해결하기
  */
+
+import java.util.*;
+
 public class Ex01 {
 
 	public Ex01() {
+		Scanner sc = new Scanner(System.in);
 		
+		System.out.print("년도를 입력하세요! : ");
+		int year = sc.nextInt();
+		
+		String msg = "평년";
+		
+		if(year % 400 == 0) {
+			msg = "윤년";
+		} else if(year % 100 == 0) {
+			msg = "평년";
+		} else if(year % 4 == 0) {
+			msg = "윤년";
+		}
+		
+		System.out.println(year + " 년도는 " + msg + " 입니다.");
 	}
 
 	public static void main(String[] args) {
