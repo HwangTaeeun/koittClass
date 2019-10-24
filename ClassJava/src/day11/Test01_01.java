@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Test01 {
+public class Test01_01 {
 	
 /*
 	내부클래스(Inner Class)
@@ -110,36 +110,14 @@ public class Test01 {
 	JFrame fr;
 	JPanel pan, bpan;
 	
-	public Test01() {
+	public Test01_01() {
 		fr = new JFrame("Test");
 		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JButton btn = new JButton("종료");
 		JButton cbtn = new JButton("색상변경");
-//		btn.addActionListener(new BtnEvent());
-		btn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		
-		cbtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// 칼라값을 만들고
-				int red = (int)(Math.random() * 256);
-				int green = (int)(Math.random() * 256);
-				int blue = (int)(Math.random() * 256);
-				
-				// 칼라 객체를 만들어주고
-				Color bg = new Color(red, green, blue);
-				
-				// 패널에 칠하고
-				pan.setBackground(bg);
-				bpan.setBackground(bg);
-			}
-		});
+		btn.addActionListener(new BtnEvent01());
+		cbtn.addActionListener(new CHBtnEvent(this));
 		
 		pan = new JPanel();
 		// pan 색상 변경
@@ -158,15 +136,41 @@ public class Test01 {
 	}
 
 	public static void main(String[] args) {
-		new Test01();
+		new Test01_01();
 	}
 
 }
 
-class BtnEvent implements ActionListener {
+class BtnEvent01 implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.exit(0);
 	}
+}
+
+class CHBtnEvent implements ActionListener {
+	// 변경하려는 JPanel들은 모두 JFrame(fr)에 포함되어 있고
+	// fr 역시 Test01_01 의 멤버이므로
+	// 만약 실행되고 있는 Test01_01 의 객체의 주소를 기억하고 있다면
+	// 그 객체의 모든 멤버에 접근이 가능 할 것이다.
+	Test01_01 main;
+	
+	public CHBtnEvent(Test01_01 main) {
+		this.main = main;
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// 칼라값 만들기
+		int red = (int)(Math.random() * 256);
+		int green = (int)(Math.random() * 256);
+		int blue = (int)(Math.random() * 256);
+		// 칼라객체를 만들고
+		Color bg = new Color(red, green, blue);
+		
+		// 색을 변경한다.
+		main.pan.setBackground(bg);
+		main.bpan.setBackground(bg);
+	}
+	
 }
