@@ -10,10 +10,19 @@ import java.util.regex.*;
 		
 		정규식 패턴을 만들고 검사해서 결과를 출력하세요.
  */
+
+import java.util.regex.*;
+
+
 public class Ex01 {
 
 	public Ex01() {
+		String sid = "abcD1234";
 		
+		Pattern reg = Pattern.compile("((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]))(^[a-zA-Z0-9]{8}$)");
+		
+		Matcher match = reg.matcher(sid);
+		System.out.println(sid + " | " + match.matches());
 	}
 
 	public static void main(String[] args) {
