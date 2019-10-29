@@ -59,11 +59,27 @@ import java.util.*;
 public class Test02 {
 
 	public Test02() {
+		ArrayList list = new ArrayList();
 		
+		// list에 1 ~ 10 까지 넣는다.
+		for(int i = 0 ; i < 10 ; i++ ) {
+			list.add((int)(Math.random()*10 + 1));
+		}
+		
+		System.out.println("정렬 전 : " + list);
+		Collections.reverse(list);
+		System.out.println("정렬 전 역정렬 : " + list);
+		
+		Collections.sort(list);
+		System.out.println("정렬 후 : " + list);
+		
+		// 내림차순 정렬하기
+		Collections.reverse(list);
+		System.out.println("내림차순 정렬 후 역정렬 후 : " + list);
 	}
 
 	public static void main(String[] args) {
-		
+		new Test02();
 	}
 
 }
