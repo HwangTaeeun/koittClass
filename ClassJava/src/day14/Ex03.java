@@ -1,4 +1,4 @@
-package day13;
+package day14;
 
 
 /*
@@ -54,8 +54,16 @@ public class Ex03 {
 		}
 		
 		// 출력하기
-		for(Object o : vec) {
-			System.out.println((Vector) o);
+		/*
+		 * for(Object o : vec) { System.out.println((Vector) o); }
+		 */
+		
+		Iterator itor = vec.iterator();
+		
+		while(itor.hasNext()) {
+			Object o = itor.next();
+			Vector v1 = (Vector) o;
+			System.out.println(v1);
 		}
 	}
 	
