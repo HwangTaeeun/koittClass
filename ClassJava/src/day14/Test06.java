@@ -16,7 +16,26 @@ public class Test06 {
 		System.out.println(list);
 		
 		// 총점으로 정렬하기
-		list.sort(new TotalSort());
+//		list.sort(new TotalSort());
+		
+		/*
+		// 익명 내부 클래스로 구현하는 경우
+		list.sort(new Comparator() {
+			@Override
+			public int compare(Object o1, Object o2) {
+				return ((Stud01)o2).total - ((Stud01)o1).total;
+			}
+		});
+		
+		*/
+		
+		Collections.sort(list, new Comparator() {
+			@Override
+			public int compare(Object o1, Object o2) {
+				return ((Stud01)o2).total - ((Stud01)o1).total;
+			}
+		});
+		
 		System.out.println("총점 내림차순정렬 : " + list);
 		
 		for(int i = 0 ; i < list.size() ; i++ ) {
