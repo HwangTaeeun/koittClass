@@ -36,6 +36,7 @@ class ObjSort implements Comparator {
 		
 		String str1 = "";
 		String str2 = "";
+		
 		// 문자열 기준으로 정렬 한다.
 		if(o1 instanceof Integer) {
 			str1 += (int) o1;
