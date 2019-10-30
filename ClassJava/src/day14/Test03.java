@@ -15,7 +15,6 @@ package day14;
 					HashSet(int initialCapacity, float loadFactor)
 						loadFactor : 	해쉬코드값을 만드는 규칙에 사용할 상수 값을 
 										사용자가 지정하면서 해쉬테이블을 만들어서 사용한다.
-										
 			
 			**
 			참고]

@@ -20,6 +20,16 @@ public class Test03 {
 		
 		System.out.println(tree);
 		
+		TreeSet t1 = (TreeSet) tree.headSet("±ËªÍ«œ");
+		
+		System.out.println("headSet(\"±ËªÍ«œ\") : " + t1);
+		
+		TreeSet t2 = (TreeSet) tree.tailSet("±ËªÍ«œ");
+		
+		System.out.println("tailSet(\"±ËªÍ«œ\") : " + t2);
+		
+		TreeSet sub = (TreeSet) tree.subSet("π⁄º€∏≤", "∞Ì»Ò¿±");
+		System.out.println("subSet(\"π⁄º€∏≤\", \"∞Ì»Ò¿±\") : " + sub);
 	}
 
 	public static void main(String[] args) {
@@ -58,10 +68,18 @@ class ObjSort implements Comparator {
 		for(int i = 0 ; i < tmp.length(); i++ ) {
 			
 			if(str1.charAt(i) < str2.charAt(i)) {
+				return 1;
+			} else if(str1.charAt(i) > str2.charAt(i)) {
+				return -1;
+			}
+			
+			/*
+			if(str1.charAt(i) < str2.charAt(i)) {
 				return -1;
 			} else if(str1.charAt(i) > str2.charAt(i)) {
 				return 1;
 			}
+			*/
 		}
 		
 		return result;

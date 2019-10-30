@@ -1,0 +1,4 @@
+name=Hong Gil Dong
+age=24
+tel=010-7777-7777
+addr=율도국 수도

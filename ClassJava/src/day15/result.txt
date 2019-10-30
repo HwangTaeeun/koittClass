@@ -1,0 +1,4 @@
+name=Hong Gil Dong
+age=24
+tel=010-7777-7777
+addr=\uc728\ub3c4\uad6d \uc218\ub3c4
