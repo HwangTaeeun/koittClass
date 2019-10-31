@@ -1,0 +1,2 @@
+write(byte[] b)
+Writes b.length bytes from the specified byte array to this file output stream.
