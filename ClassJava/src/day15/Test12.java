@@ -8,7 +8,7 @@ public class Test12 {
 	public Test12() {
 		map = new HashMap<String, Integer>();
 		
-		map.put("둘리", 1);
+		map.put("둘리", 100000000);
 		map.put("희동이", 4);
 		map.put("고길동", 34);
 		map.put("또치", 3);
