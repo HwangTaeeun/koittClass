@@ -41,10 +41,11 @@ public class Test04 {
 				String str = br.readLine();
 				if(str == null) break;
 				buff.append(str);
+				buff.append("\r\n");
 			}
 			
 			bw.write(buff.toString());
-			
+			System.out.println("************** Write Complete **************");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}finally {
