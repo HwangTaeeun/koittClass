@@ -64,7 +64,6 @@ public class EmpDAO {
 		
 		// Statement 얻어오고
 		stmt = db.getSTMT(con);
-		// 질의명령 가져오고
 		String sql = EmpSQL.getSQL(EmpSQL.SEL_1500_UPPER);
 		// 질의명령 보내고 결과 받고
 		try {
@@ -126,6 +125,7 @@ public class EmpDAO {
 		try {
 			// 질의명령을 완성해주고
 			pstmt.setString(1, sname);
+			
 			// 질의명령 보내고 데이터 받고
 			rs = pstmt.executeQuery();
 			// 데이터 꺼내고
